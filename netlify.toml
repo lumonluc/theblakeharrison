@@ -1,0 +1,4 @@
+[build]
+  # Static site — nothing to compile. dist/ is the deployable folder.
+  publish = "dist"
+  command = ""
