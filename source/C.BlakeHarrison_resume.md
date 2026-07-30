@@ -1,61 +1,61 @@
 # Charles Blake Harrison
-**Stillwater, Oklahoma** | (972) 804-9185 | harrib93@icloud.com
+**Frisco, TX** | (972) 804-9185 | harrib93@icloud.com
+
+Management Information Systems candidate graduating August 2026 with experience in automation, systems integration, troubleshooting, and digital operations.
 
 ---
 
 ## Education
-**Oklahoma State University** – Stillwater, OK · Grad: May 2026  
-Bachelor of Science in Business Administration  
-Major: Management Information Systems | GPA: 3.9
+**Oklahoma State University** – Stillwater, OK · Expected August 2026
+Bachelor of Science in Business Administration
+Major: Management Information Systems | GPA: 3.78
+
+---
+
+## Tools & Technical Skills
+
+**Systems & Operations** — Workflow automation, systems troubleshooting, API integration, testing & debugging, workflow documentation, process improvement, workflow monitoring
+
+**Tools** — Git, Linux, Docker, Netlify, Nginx, Google Analytics, Google Tag Manager, Claude Code, Cursor, OpenClaw, MetaTrader 5
+
+**Development & Data** — Python, SQL, TypeScript/JavaScript, React, Next.js, FastAPI, pandas, PostgreSQL, PowerShell, Excel
+
+---
+
+## Selected Systems & Automation Projects
+
+### AI Content Automation System — Harrison Insurance Agency
+*2025 – Present* · OpenClaw · Linux · generative video · bundle.social API
+- Built and operate an unattended Linux automation pipeline that generates, schedules, publishes, and monitors AI video content across four social platforms three times daily for a live business
+- Integrated the bundle.social API for multi-platform scheduling — upload, processing-status checks, publish — with authentication handling and failure recovery
+- Reviewed platform analytics and shifted production from educational content toward higher-performing comedy and skit formats
+
+### Algorithmic Trading and Risk Platform
+*2024 – Present* · Independent Project · Python · MetaTrader 5 · pandas
+- Built and operate a trading platform supporting multiple accounts, configurable strategies, backtesting, risk controls, and live monitoring
+- Diagnosed and resolved live-order failures caused by a broker filling-mode incompatibility
+- Implemented position-sizing, consecutive-loss, and daily-equity controls backed by automated tests; earned access to a $75,000 funded account through an external evaluation
+
+**Additional projects:** ClipBot — Python/FastAPI video-clipping pipeline (faster-whisper, FFmpeg) · PowerShell dashboard that risk-scores listening TCP services · Debian home-lab appliance (Pi-hole, Nginx, monitoring, FastAPI dashboard)
 
 ---
 
 ## Professional Experience
 
-### Quantitative Trading & Algorithmic Research (Summer Project)
-*May 2024 – Present* · Independent / MetaQuotes – Frisco, TX
-- Engineered and stress-tested algorithmic trading systems specializing in Forex and crypto assets
-- Proficient in MetaQuotes (MQL5), Python, and advanced backtesting frameworks for high-precision strategy validation, while ensuring compliance with U.S. financial regulations
-- Deployed a robust multi-level trading infrastructure, applying quantitative models to maximize execution efficiency and capture market edge
-
-### Foreign Exchange Currency Speculation (Certified Funded Trader - $75K)
-*May 2024 – Present* · 1 of 1 Funding – Frisco, TX
-- Achieved funding status by demonstrating consistent performance in live market environments
-- Executed disciplined trades with a focus on risk-adjusted returns and capital preservation
-
----
-
-## Work Experience
+### Technology & Digital Operations
+*Mar 2020 – Present* · Harrison Insurance Agency – Frisco/Plano, TX
+- Rebuilt the agency website (planoinsurance.com) in React/Vite on Netlify; implemented Google Tag Manager and Google Ads conversion tracking
+- Operate the agency's AI content automation and social media systems; progressed from administrative support into managing its website, analytics, automation, and digital operations
 
 ### Digital Marketing Intern
 *May 2023 – Aug 2023* · Dallas Digital – Dallas, TX
-- Spearheaded optimization of Google Ads campaigns and client social media strategies to boost ROI
-- Delivered actionable analytics reports tracking performance, audience reach, and conversions
-- Partnered with marketing leads to design and execute targeted digital advertising initiatives
+- Optimized Google Ads campaigns and client social media strategies; delivered analytics reports tracking performance, reach, and conversions
 
-### Administrative Assistant
-*Mar 2020 – Present* · Harrison Insurance Agency – Frisco, TX
-- Maintained organized filing systems across digital and physical platforms to ensure operational efficiency
-- Directed inbound calls and emails, providing seamless communication between clients and staff
-- Produced professional documents and dynamic spreadsheets using Microsoft Office Suite
-
-### Assistant Manager
-*Mar 2022 – Jul 2022* · Giovanni's Italian Restaurant – Frisco, TX
-- Supervised and coordinated daily operations, ensuring service quality and team accountability
-- Resolved customer concerns with speed and professionalism to elevate client satisfaction
-- Implemented menu enhancements, optimized staff scheduling, and executed ad hoc operational improvements
-
-### Owner & Operator
-*Jan 2021 – Jul 2021* · Luxury Lawn Services – Frisco, TX
-- Consulted with clients to design and implement customized landscaping solutions
-- Delegated responsibilities and coached team members to meet deadlines and project standards
-- Controlled budgets and costs, driving profitability through effective financial oversight
+**Additional experience:** Assistant Manager, Giovanni's Italian Restaurant, Frisco, TX (2022) · Owner & Operator, Luxury Lawn Services, Frisco, TX (2021)
 
 ---
 
-## Leadership and Activities
-- **President's Honor Roll** – Oklahoma State University Spring 2024
-- **President's Honor Roll** – Oklahoma State University Fall 2025–2026
-- **Dean's Honor Roll** – Oklahoma State University Fall 2024
-- **Dean's Honor Roll** – University of Arkansas Fall 2022 & Spring 2022
-- Men's Recreational Soccer Group – University of Arkansas Fall 2022 & Spring 2022
+## Honors & Certifications
+- **Anthropic Academy Certifications** — AI Fluency & Claude 101 (2026)
+- **President's Honor Roll** – Oklahoma State University (Spring 2024, Fall 2025)
+- **Dean's Honor Roll** – Oklahoma State University (Fall 2024) & University of Arkansas (2022)
