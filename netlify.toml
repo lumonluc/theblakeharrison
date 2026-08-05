@@ -1,4 +1,7 @@
 [build]
-  # Static site — nothing to compile. dist/ is the deployable folder.
   publish = "dist"
-  command = ""
+  command = "npm run build"
+
+[build.environment]
+  # pin the toolchain so a Netlify default bump can't change the output
+  NODE_VERSION = "20"

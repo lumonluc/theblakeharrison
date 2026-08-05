@@ -1,299 +1,568 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; base-uri 'self'; form-action 'none';">
-  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-  <meta name="description" content="Blake Harrison — MIS @ Oklahoma State (grad Aug 2026). I build and operate automation systems, API integrations, and full-stack web apps: unattended Linux pipelines, trading & risk platforms, and business automation.">
-  <title>Blake Harrison · MIS · Automation & Full-Stack Systems</title>
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://theblakeharrison.com/">
-  <meta property="og:title" content="Blake Harrison · MIS · Automation & Full-Stack Systems">
-  <meta property="og:description" content="MIS @ Oklahoma State (grad Aug 2026). I build and operate automation systems, API integrations, and full-stack web apps for live businesses and clients.">
-  <meta property="og:image" content="https://theblakeharrison.com/unnamed.jpg">
-  <meta property="og:site_name" content="Charles Blake Harrison">
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://theblakeharrison.com/">
-  <meta name="twitter:title" content="Blake Harrison · MIS · Automation & Full-Stack Systems">
-  <meta name="twitter:description" content="MIS @ Oklahoma State (grad Aug 2026). I build and operate automation systems, API integrations, and full-stack web apps for live businesses and clients.">
-  <meta name="twitter:image" content="https://theblakeharrison.com/unnamed.jpg">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"Charles Blake Harrison","alternateName":"Blake Harrison","jobTitle":"Management Information Systems Candidate · Automation & Full-Stack Developer","url":"https://theblakeharrison.com","email":"mailto:harrib93@icloud.com","telephone":"+1-972-804-9185","address":{"@type":"PostalAddress","addressLocality":"Frisco","addressRegion":"TX","addressCountry":"US"},"sameAs":["https://www.linkedin.com/in/theblakeharrison/"],"alumniOf":{"@type":"CollegeOrUniversity","name":"Oklahoma State University"},"knowsAbout":["Workflow Automation","Systems Integration","API Integration","Full-Stack Development","Python","TypeScript","React","Next.js","FastAPI","Linux","Docker","Algorithmic Trading","Management Information Systems"],"description":"MIS candidate at Oklahoma State University (grad Aug 2026) who builds and operates automation systems, API integrations, and full-stack web apps."}
-  </script>
-</head>
-<body>
-  <a href="#main" class="skip-link">Skip to content</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; base-uri 'self'; form-action 'none';"
+    />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta
+      name="description"
+      content="Blake Harrison — Oklahoma State MIS graduate with a concentration in Information Assurance, based in Frisco, TX. I build and operate secure, reliable production systems end to end: an unattended Linux content pipeline and an algorithmic trading platform with automated risk controls."
+    />
+    <meta name="theme-color" content="#faf9f7" />
+    <link rel="canonical" href="https://theblakeharrison.com/" />
+    <title>Blake Harrison — Information Assurance &amp; Systems | Frisco, TX</title>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="https://www.linkedin.com/in/theblakeharrison/" class="logo" target="_blank" rel="noopener noreferrer">
-        <span class="logo-mark">CBH</span>
-        <span class="logo-text">Blake Harrison</span>
-      </a>
-      <nav class="nav" aria-label="Main">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-        <a href="C.BlakeHarrison_resume.pdf?v=20260729" class="btn btn-resume" target="_blank" rel="noopener noreferrer">Resume</a>
-      </nav>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
+    <meta property="og:type" content="profile" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://theblakeharrison.com/" />
+    <meta
+      property="og:title"
+      content="Blake Harrison — Systems, Information Assurance &amp; Data"
+    />
+    <meta
+      property="og:description"
+      content="Oklahoma State MIS graduate, concentration in Information Assurance. Frisco, TX. I build and operate secure, reliable production systems end to end."
+    />
+    <meta property="og:image" content="https://theblakeharrison.com/og-card.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Blake Harrison on the Oklahoma State University campus."
+    />
+    <meta property="og:site_name" content="Blake Harrison" />
 
-  <main id="main">
-    <section class="hero">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="container hero-inner">
-        <p class="hero-badge" role="status"><span class="pulse-dot"></span> Open to work · Grad Aug 2026</p>
-        <img src="unnamed.jpg" alt="Charles Blake Harrison" class="hero-headshot" width="150" height="150">
-        <p class="hero-label">Oklahoma State University · MIS</p>
-        <h1 class="hero-title">Blake Harrison</h1>
-        <p class="hero-tagline">I build and operate <strong>automation systems, API integrations, and full-stack apps</strong> — from unattended Linux pipelines to trading and risk platforms.</p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">View Projects</a>
-          <a href="C.BlakeHarrison_resume.pdf?v=20260729" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Download Resume</a>
-        </div>
-        <ul class="hero-stats" aria-label="Highlights">
-          <li><span class="stat-num">3.78</span><span class="stat-label">GPA · MIS</span></li>
-          <li><span class="stat-num">Aug 2026</span><span class="stat-label">OSU Graduation</span></li>
-          <li><span class="stat-num">6+</span><span class="stat-label">Systems Built</span></li>
-        </ul>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Blake Harrison — Systems, Information Assurance &amp; Data"
+    />
+    <meta
+      name="twitter:description"
+      content="Oklahoma State MIS graduate, concentration in Information Assurance. I build secure, reliable production systems end to end."
+    />
+    <meta name="twitter:image" content="https://theblakeharrison.com/og-card.jpg" />
+    <meta
+      name="twitter:image:alt"
+      content="Blake Harrison on the Oklahoma State University campus."
+    />
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Charles Blake Harrison",
+        "alternateName": "Blake Harrison",
+        "jobTitle": "Systems & Information Assurance Analyst",
+        "url": "https://theblakeharrison.com",
+        "email": "mailto:harrib93@icloud.com",
+        "telephone": "+1-972-804-9185",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Frisco",
+          "addressRegion": "TX",
+          "addressCountry": "US"
+        },
+        "sameAs": ["https://www.linkedin.com/in/theblakeharrison/"],
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Oklahoma State University" },
+        "knowsAbout": [
+          "Information Assurance",
+          "Information Security",
+          "Workflow Automation",
+          "Systems Integration",
+          "API Integration",
+          "Systems Troubleshooting",
+          "Monitoring",
+          "Python",
+          "SQL",
+          "Linux",
+          "Docker"
+        ],
+        "description": "Oklahoma State MIS graduate with a concentration in Information Assurance, hands-on production systems experience, and the ability to build secure, reliable technology from the ground up."
+      }
+    </script>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <!-- .logo-text is hidden under 700px, so the link needs its own name -->
+        <a href="#main" class="logo" aria-label="Blake Harrison — top of page">
+          <span class="logo-mark" aria-hidden="true">CBH</span>
+          <span class="logo-text">Blake Harrison</span>
+        </a>
+        <nav class="nav" id="primary-nav" aria-label="Main">
+          <a href="#work">Work</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+          <a
+            href="Charles_Blake_Harrison_Resume.pdf?v=a91b2619"
+            class="btn btn-resume"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Resume
+          </a>
+        </nav>
+        <button
+          type="button"
+          class="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-    </section>
+    </header>
 
-    <section id="about" class="section reveal">
-      <div class="container">
-        <p class="section-eyebrow">01 — Profile</p>
-        <h2 class="section-title">About</h2>
-        <div class="about-grid">
-          <div class="about-content">
-            <p>I'm a Management Information Systems candidate at Oklahoma State University (graduating August 2026, 3.78 GPA), focused on automation, systems integration, troubleshooting, and digital operations.</p>
-            <p>I build and operate real systems for live businesses and clients — an unattended Linux pipeline that publishes AI video content three times a day, a multi-account algorithmic trading and risk platform, and the website, analytics, and automation behind a working insurance agency. I like taking a system from broken or nonexistent to running, tested, and monitored.</p>
+    <main id="main">
+      <section class="hero">
+        <!-- Decorative: a drifting grid centred behind the portrait, plus
+             signal traces crossing it. Purely CSS, transform-only. -->
+        <div class="hero-glow" aria-hidden="true">
+          <div class="hero-grid"></div>
+          <span class="streak streak-1"></span>
+          <span class="streak streak-2"></span>
+          <span class="streak streak-3"></span>
+          <span class="streak streak-4"></span>
+          <span class="streak streak-5"></span>
+        </div>
+        <div class="container hero-inner">
+          <img
+            class="hero-portrait"
+            src="portrait.jpg"
+            alt="Blake Harrison on the Oklahoma State University campus."
+            width="368"
+            height="368"
+            fetchpriority="high"
+            decoding="async"
+          />
+          <p class="hero-eyebrow">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            Ready to work · Frisco, TX
+          </p>
+          <h1 class="hero-title">I build and operate production systems end&nbsp;to&nbsp;end.</h1>
+          <p class="hero-lede">
+            Oklahoma State MIS graduate with a concentration in Information Assurance, hands-on
+            production systems experience, and the ability to build secure, reliable technology from
+            the ground up.
+          </p>
+          <div class="hero-actions">
+            <a href="#work" class="btn btn-primary">See the systems</a>
+            <a
+              href="Charles_Blake_Harrison_Resume.pdf?v=a91b2619"
+              class="btn btn-ghost"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Download resume
+            </a>
           </div>
-          <ul class="about-highlights">
-            <li><span class="hl-key">Focus</span> Automation, integrations &amp; full-stack</li>
-            <li><span class="hl-key">Builds</span> Linux pipelines, APIs &amp; web apps</li>
-            <li><span class="hl-key">Stack</span> Python · TypeScript · React · Next.js</li>
-            <li><span class="hl-key">Based</span> Frisco, TX · Stillwater, OK</li>
+
+          <!-- Proof stays above the fold: the two systems are named before the
+               visitor scrolls, which is the whole point of the page. -->
+          <ul class="hero-proof">
+            <li>
+              <a href="#work">
+                <span class="hp-name">AI Content Automation System</span>
+                <span class="hp-meta">Unattended Linux pipeline · 3&times;/day · 4 platforms</span>
+              </a>
+            </li>
+            <li>
+              <a href="#work">
+                <span class="hp-name">Algorithmic Trading &amp; Risk Platform</span>
+                <span class="hp-meta">
+                  Multi-account · automated risk controls · live monitored
+                </span>
+              </a>
+            </li>
           </ul>
+
+          <dl class="hero-stats">
+            <div class="stat">
+              <dt>GPA · Management Information Systems</dt>
+              <dd>3.78</dd>
+            </div>
+            <div class="stat">
+              <dt>B.S. Business Administration, Oklahoma State</dt>
+              <dd>Aug 2026</dd>
+            </div>
+            <div class="stat">
+              <dt>Based in · open across DFW</dt>
+              <dd>Frisco, TX</dd>
+            </div>
+          </dl>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="projects" class="section section-alt reveal">
-      <div class="container">
-        <p class="section-eyebrow">02 — Selected work</p>
-        <h2 class="section-title">Projects</h2>
+      <section id="work" class="section">
+        <div class="container">
+          <h2 class="section-title">Select work</h2>
+          <p class="section-lede">
+            Two systems I built and still operate. Both run against live accounts, not sample data.
+          </p>
 
-        <div class="projects">
-          <article class="project-card">
+          <article class="project">
             <div class="project-head">
-              <h3>AI Content Automation System</h3>
-              <span class="project-date">2025 – Present</span>
+              <div>
+                <p class="project-index" aria-hidden="true">01</p>
+                <h3>AI Content Automation System</h3>
+                <p class="project-org">
+                  Harrison Insurance Agency — my family's agency, Frisco / Plano, TX
+                </p>
+              </div>
+              <p class="project-date">2025 – Present</p>
             </div>
-            <p class="project-org">Harrison Insurance Agency</p>
-            <ul class="project-tech">
-              <li>OpenClaw</li><li>Linux</li><li>Generative Video</li><li>bundle.social API</li>
+
+            <ul class="project-metrics">
+              <li>
+                <span class="m-num">3&times;</span>
+                <span class="m-label">per day, unattended</span>
+              </li>
+              <li>
+                <span class="m-num">4</span>
+                <span class="m-label">social platforms</span>
+              </li>
+              <li>
+                <span class="m-num">0</span>
+                <span class="m-label">manual steps to publish</span>
+              </li>
             </ul>
-            <ul class="project-list">
-              <li>Built and operate an unattended Linux automation pipeline that generates, schedules, publishes, and monitors AI video content across four social platforms three times daily for a live business.</li>
-              <li>Integrated the bundle.social API for multi-platform scheduling — upload, processing-status checks, publish — with authentication handling and failure recovery.</li>
-              <li>Reviewed platform analytics and shifted production from educational content toward higher-performing comedy and skit formats.</li>
-            </ul>
+
+            <div class="project-body">
+              <ul class="project-list">
+                <li>
+                  Built and operate an unattended Linux automation pipeline that generates,
+                  schedules, publishes, and monitors AI video content across four social platforms
+                  three times daily.
+                </li>
+                <li>
+                  Integrated the bundle.social API for multi-platform scheduling — upload,
+                  processing-status checks, publish — with authentication handling and failure
+                  recovery.
+                </li>
+                <li>
+                  Reviewed platform analytics and shifted production from educational content toward
+                  comedy and skit formats.
+                </li>
+              </ul>
+            </div>
           </article>
 
-          <article class="project-card">
+          <article class="project">
             <div class="project-head">
-              <h3>Algorithmic Trading &amp; Risk Platform</h3>
-              <span class="project-date">2024 – Present</span>
+              <div>
+                <p class="project-index" aria-hidden="true">02</p>
+                <h3>Algorithmic Trading &amp; Risk Platform</h3>
+                <p class="project-org">Independent project</p>
+              </div>
+              <p class="project-date">2024 – Present</p>
             </div>
-            <p class="project-org">Independent Project</p>
-            <ul class="project-tech">
-              <li>Python</li><li>MetaTrader 5</li><li>pandas</li>
+
+            <ul class="project-metrics">
+              <li>
+                <span class="m-num">Live</span>
+                <span class="m-label">order execution</span>
+              </li>
+              <li>
+                <span class="m-num">3</span>
+                <span class="m-label">automated risk controls</span>
+              </li>
+              <li>
+                <span class="m-num">Multi</span>
+                <span class="m-label">account, live monitored</span>
+              </li>
             </ul>
-            <ul class="project-list">
-              <li>Built and operate a trading platform supporting multiple accounts, configurable strategies, backtesting, risk controls, and live monitoring.</li>
-              <li>Diagnosed and resolved live-order failures caused by a broker filling-mode incompatibility.</li>
-              <li>Implemented position-sizing, consecutive-loss, and daily-equity risk controls backed by automated tests; earned access to a $75,000 funded account through an external evaluation.</li>
-            </ul>
+
+            <div class="project-body">
+              <ul class="project-list">
+                <li>
+                  Built and operate a trading platform supporting multiple accounts, configurable
+                  strategies, backtesting, risk controls, and live monitoring.
+                </li>
+                <li>
+                  Diagnosed and resolved live-order failures caused by a broker filling-mode
+                  incompatibility.
+                </li>
+                <li>
+                  Implemented position-sizing, consecutive-loss, and daily-equity risk controls
+                  backed by automated tests.
+                </li>
+                <li>Passed an external evaluation to earn access to a funded account.</li>
+              </ul>
+            </div>
           </article>
 
+          <div class="also">
+            <h3 class="also-title">Personal projects</h3>
+            <ul class="also-list">
+              <li class="also-item">
+                <h4>ClipBot</h4>
+                <p>
+                  Transcribes long-form video, picks clip-worthy moments straight from the
+                  transcript, and cuts captioned short-form videos.
+                </p>
+                <ul class="also-tech">
+                  <li>Python</li>
+                  <li>FastAPI</li>
+                  <li>faster-whisper</li>
+                  <li>FFmpeg</li>
+                </ul>
+              </li>
+              <li class="also-item">
+                <h4>TCP Risk Dashboard</h4>
+                <p>Enumerates listening TCP services on a host and risk-scores each one.</p>
+                <ul class="also-tech">
+                  <li>PowerShell</li>
+                </ul>
+              </li>
+              <li class="also-item">
+                <h4>Debian Home-Lab Appliance</h4>
+                <p>
+                  Self-hosted appliance running DNS-level ad blocking, a reverse proxy, monitoring,
+                  and a status dashboard.
+                </p>
+                <ul class="also-tech">
+                  <li>Debian</li>
+                  <li>Pi-hole</li>
+                  <li>Nginx</li>
+                  <li>FastAPI</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
+      </section>
 
-        <div class="project-more">
-          <p class="project-more-label">Also building</p>
-          <ul class="project-more-list">
-            <li><strong>ClipBot</strong> — Python/FastAPI video-clipping pipeline (faster-whisper, FFmpeg)</li>
-            <li><strong>TCP Risk Dashboard</strong> — PowerShell tool that risk-scores listening TCP services</li>
-            <li><strong>Debian Home-Lab Appliance</strong> — Pi-hole, Nginx, monitoring &amp; a FastAPI dashboard</li>
+      <section id="experience" class="section section-alt">
+        <div class="container">
+          <h2 class="section-title">Experience</h2>
+
+          <ol class="timeline">
+            <li class="tl-item">
+              <p class="tl-date">
+                <span>Mar 2020</span>
+                <span>Present</span>
+              </p>
+              <div class="tl-body">
+                <h3>Technology &amp; Digital Operations</h3>
+                <p class="tl-org">
+                  <span class="tl-co">Harrison Insurance Agency</span>
+                  <span class="tl-loc">Frisco / Plano, TX</span>
+                </p>
+                <ul class="tl-list">
+                  <!-- prettier-ignore -->
+                  <li>
+                    Rebuilt <a href="https://www.planoinsurance.com" target="_blank" rel="noopener noreferrer">planoinsurance.com</a> in React/Vite on Netlify;
+                    implemented Google Tag Manager and Google Ads conversion tracking.
+                  </li>
+                  <li>
+                    Operate the agency's AI content automation and social media systems; progressed
+                    from administrative support into managing its website, analytics, automation,
+                    and digital operations.
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="tl-item">
+              <p class="tl-date">
+                <span>May 2023</span>
+                <span>Aug 2023</span>
+              </p>
+              <div class="tl-body">
+                <h3>Digital Marketing Intern</h3>
+                <p class="tl-org">
+                  <span class="tl-co">Dallas Digital</span>
+                  <span class="tl-loc">Dallas, TX</span>
+                </p>
+                <ul class="tl-list">
+                  <li>
+                    Optimized Google Ads campaigns and client social media strategies; delivered
+                    analytics reports tracking performance, reach, and conversions.
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="tl-item tl-item-minor">
+              <p class="tl-date">
+                <span>2021</span>
+                <span>2022</span>
+              </p>
+              <div class="tl-body">
+                <h3>Earlier</h3>
+                <p class="tl-org">
+                  <span class="tl-co">Hospitality &amp; small business</span>
+                  <span class="tl-loc">Frisco, TX</span>
+                </p>
+                <ul class="tl-list">
+                  <li>
+                    Assistant Manager, Giovanni's Italian Restaurant (2022) · Owner &amp; Operator,
+                    Luxury Lawn Services (2021).
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <div class="container">
+          <h2 class="section-title">Tools &amp; technical skills</h2>
+          <dl class="skills">
+            <div class="skill-row">
+              <dt>Systems &amp; Operations</dt>
+              <dd>
+                Workflow automation · Systems troubleshooting · API integration · Testing &amp;
+                debugging · Workflow documentation · Process improvement · Monitoring
+              </dd>
+            </div>
+            <div class="skill-row">
+              <dt>Platforms &amp; Infrastructure</dt>
+              <dd>
+                Git · Linux · Docker · Nginx · Netlify · PostgreSQL · Google Analytics · Google Tag
+                Manager
+              </dd>
+            </div>
+            <div class="skill-row">
+              <dt>Development &amp; Data</dt>
+              <dd>
+                Python · SQL · TypeScript/JavaScript · React · Next.js · FastAPI · pandas ·
+                PowerShell · Excel
+              </dd>
+            </div>
+            <div class="skill-row">
+              <dt>AI &amp; Developer Tooling</dt>
+              <dd>Claude Code · Cursor · OpenClaw · MetaTrader 5</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section id="education" class="section section-alt">
+        <div class="container">
+          <h2 class="section-title">Education &amp; honors</h2>
+          <div class="edu-grid">
+            <div class="edu-main">
+              <h3>Oklahoma State University</h3>
+              <p class="edu-meta">Stillwater, OK · August 2026</p>
+              <p class="edu-degree">
+                Bachelor of Science in Business Administration
+                <br />
+                Management Information Systems · GPA 3.78
+                <br />
+                Concentration: Information Assurance
+              </p>
+            </div>
+            <div class="edu-side">
+              <h3>Certifications</h3>
+              <ul class="plain-list">
+                <li>AI Fluency: Framework &amp; Foundations — Anthropic, 2026</li>
+                <li>Claude 101 — Anthropic, 2026</li>
+              </ul>
+              <h3>Honors</h3>
+              <ul class="plain-list">
+                <li>President's Honor Roll — Oklahoma State (Spring 2024, Fall 2025)</li>
+                <li>
+                  Dean's Honor Roll — Oklahoma State (Fall 2024), University of Arkansas (2022)
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="container">
+          <h2 class="section-title">Let's talk</h2>
+          <p class="section-lede">
+            Open to systems and implementation analyst, cybersecurity, and data/BI roles across DFW.
+          </p>
+          <ul class="contact-links">
+            <li>
+              <a href="mailto:harrib93@icloud.com">
+                <span class="cc-label">Email</span>
+                <span class="cc-value">harrib93@icloud.com</span>
+              </a>
+              <button
+                type="button"
+                class="cc-copy"
+                data-copy="harrib93@icloud.com"
+                aria-label="Copy email address"
+                hidden
+              >
+                Copy
+              </button>
+            </li>
+            <li>
+              <a href="tel:+19728049185">
+                <span class="cc-label">Phone</span>
+                <span class="cc-value">(972)&nbsp;804&#8209;9185</span>
+              </a>
+              <button
+                type="button"
+                class="cc-copy"
+                data-copy="(972) 804-9185"
+                aria-label="Copy phone number"
+                hidden
+              >
+                Copy
+              </button>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/theblakeharrison/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="cc-label">LinkedIn</span>
+                <span class="cc-value">/theblakeharrison</span>
+              </a>
+            </li>
           </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience" class="section reveal">
-      <div class="container">
-        <p class="section-eyebrow">03 — Track record</p>
-        <h2 class="section-title">Experience</h2>
-
-        <div class="timeline">
-          <article class="tl-item">
-            <div class="tl-head">
-              <h3>Technology &amp; Digital Operations</h3>
-              <span class="tl-date">Mar 2020 – Present</span>
-            </div>
-            <p class="meta">Harrison Insurance Agency · Frisco / Plano, TX</p>
-            <ul>
-              <li>Rebuilt the agency website (planoinsurance.com) in React/Vite on Netlify; implemented Google Tag Manager and Google Ads conversion tracking.</li>
-              <li>Operate the agency's AI content automation and social media systems.</li>
-              <li>Progressed from administrative support into managing the website, analytics, automation, and digital operations.</li>
-            </ul>
-          </article>
-
-          <article class="tl-item">
-            <div class="tl-head">
-              <h3>Digital Marketing Intern</h3>
-              <span class="tl-date">May 2023 – Aug 2023</span>
-            </div>
-            <p class="meta">Dallas Digital · Dallas, TX</p>
-            <ul>
-              <li>Optimized Google Ads campaigns and client social media strategies.</li>
-              <li>Delivered analytics reports tracking performance, reach, and conversions.</li>
-            </ul>
-          </article>
-
-          <article class="tl-item">
-            <div class="tl-head">
-              <h3>Earlier Roles</h3>
-              <span class="tl-date">2021 – 2022</span>
-            </div>
-            <p class="meta">Frisco, TX</p>
-            <ul>
-              <li>Assistant Manager — Giovanni's Italian Restaurant (2022): supervised daily operations, service quality, and team accountability.</li>
-              <li>Owner &amp; Operator — Luxury Lawn Services (2021): ran a service business end to end, managing budgets, scheduling, and a small team.</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="section section-alt reveal">
-      <div class="container">
-        <p class="section-eyebrow">04 — Toolkit</p>
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-group">
-            <h3>Systems &amp; Operations</h3>
-            <ul class="tags">
-              <li>Workflow Automation</li>
-              <li>Systems Troubleshooting</li>
-              <li>API Integration</li>
-              <li>Testing &amp; Debugging</li>
-              <li>Workflow Documentation</li>
-              <li>Process Improvement</li>
-              <li>Monitoring</li>
-            </ul>
-          </div>
-          <div class="skill-group">
-            <h3>Development &amp; Data</h3>
-            <ul class="tags">
-              <li>Python</li>
-              <li>SQL</li>
-              <li>TypeScript</li>
-              <li>React</li>
-              <li>Next.js</li>
-              <li>FastAPI</li>
-              <li>pandas</li>
-              <li>PostgreSQL</li>
-              <li>PowerShell</li>
-              <li>Excel</li>
-            </ul>
-          </div>
-          <div class="skill-group">
-            <h3>Tools &amp; Platforms</h3>
-            <ul class="tags">
-              <li>Git</li>
-              <li>Linux</li>
-              <li>Docker</li>
-              <li>Netlify</li>
-              <li>Nginx</li>
-              <li>Google Analytics</li>
-              <li>Google Tag Manager</li>
-              <li>Claude Code</li>
-              <li>Cursor</li>
-              <li>OpenClaw</li>
-              <li>MetaTrader 5</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="education" class="section reveal">
-      <div class="container">
-        <p class="section-eyebrow">05 — Credentials</p>
-        <h2 class="section-title">Education, Honors &amp; Certifications</h2>
-        <div class="edu-grid">
-          <div class="card edu-card">
-            <h3>Oklahoma State University</h3>
-            <p class="meta">Stillwater, OK · Expected August 2026</p>
-            <p><strong>B.S. in Business Administration</strong><br>Major: Management Information Systems · GPA: 3.78</p>
-          </div>
-          <ul class="honors-list">
-            <li><span class="honor-tag">Certification</span> Anthropic Academy — AI Fluency (2026)</li>
-            <li><span class="honor-tag">Certification</span> Anthropic Academy — Claude 101 (2026)</li>
-            <li><span class="honor-tag">President's List</span> Oklahoma State — Spring 2024</li>
-            <li><span class="honor-tag">President's List</span> Oklahoma State — Fall 2025</li>
-            <li><span class="honor-tag">Dean's List</span> Oklahoma State — Fall 2024</li>
-            <li><span class="honor-tag">Dean's List</span> University of Arkansas — 2022</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact-section reveal">
-      <div class="container">
-        <p class="section-eyebrow contact-eyebrow">06 — Let's talk</p>
-        <h2 class="section-title contact-title">Open to automation, MIS &amp; software roles</h2>
-        <p class="contact-intro">Looking for opportunities in automation, systems integration, full-stack development, and digital operations. The fastest way to reach me is below.</p>
-        <div class="contact-links">
-          <a href="mailto:harrib93@icloud.com" class="contact-card">
-            <span class="cc-label">Email</span>
-            <span class="cc-value">harrib93@icloud.com</span>
+          <a
+            href="Charles_Blake_Harrison_Resume.pdf?v=a91b2619"
+            class="btn btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download resume
           </a>
-          <a href="tel:+19728049185" class="contact-card">
-            <span class="cc-label">Phone</span>
-            <span class="cc-value">(972) 804-9185</span>
-          </a>
-          <a href="https://www.linkedin.com/in/theblakeharrison/" class="contact-card" target="_blank" rel="noopener noreferrer">
-            <span class="cc-label">LinkedIn</span>
-            <span class="cc-value">/theblakeharrison</span>
-          </a>
+          <p class="sr-only" role="status" aria-live="polite" id="copy-status"></p>
         </div>
-        <a href="C.BlakeHarrison_resume.pdf?v=20260729" class="btn btn-primary contact-resume" target="_blank" rel="noopener noreferrer">Download Resume</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>
+          &copy;
+          <span id="year">2026</span>
+          Charles Blake Harrison · Frisco, TX
+        </p>
+        <a href="#main" class="footer-top">Back to top</a>
       </div>
-    </section>
-  </main>
+    </footer>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> Charles Blake Harrison · theblakeharrison.com</p>
-      <a href="#main" class="footer-top">Back to top ↑</a>
-    </div>
-  </footer>
+    <button type="button" class="to-top" aria-label="Back to top" hidden>
+      <span aria-hidden="true">↑</span>
+    </button>
 
-  <script src="js/main.js"></script>
-</body>
+    <script src="js/main.js" defer></script>
+  </body>
 </html>

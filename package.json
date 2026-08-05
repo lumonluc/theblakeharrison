@@ -1,0 +1,26 @@
+{
+  "name": "theblakeharrison",
+  "version": "1.0.0",
+  "private": true,
+  "description": "theblakeharrison.com — static personal site",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "lint:html": "html-validate \"source/**/*.html\"",
+    "lint:css": "stylelint \"source/css/*.css\"",
+    "lint:format": "prettier --check \"source/**/*.{html,css,js}\" \"tools/*.mjs\"",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:format",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"source/**/*.{html,css,js}\" \"tools/*.mjs\"",
+    "serve": "node tools/serve.mjs",
+    "verify": "npm run lint && npm run typecheck && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "html-validate": "^9.5.3",
+    "prettier": "^3.4.2",
+    "stylelint": "^16.12.0",
+    "stylelint-config-standard": "^36.0.1",
+    "typescript": "^5.7.2"
+  }
+}

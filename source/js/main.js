@@ -1,75 +1,149 @@
+/* theblakeharrison.com — progressive enhancement only.
+   Every byte of content renders without this file. */
 (function () {
   'use strict';
 
-  // Footer year
-  var yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  // Mobile nav toggle
+  /** @type {HTMLElement | null} */
+  var header = document.querySelector('.site-header');
+  /** @type {HTMLElement | null} */
+  var nav = document.getElementById('primary-nav');
+  /** @type {HTMLButtonElement | null} */
   var toggle = document.querySelector('.nav-toggle');
-  var nav = document.querySelector('.nav');
+  var year = document.getElementById('year');
+
+  if (year) year.textContent = String(new Date().getFullYear());
+
+  /* --- Mobile drawer --- */
   if (toggle && nav) {
-    toggle.addEventListener('click', function () {
-      var open = nav.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', open);
+    var drawer = nav;
+    var button = toggle;
+
+    /** @param {boolean} open */
+    var setMenu = function (open) {
+      drawer.classList.toggle('is-open', open);
+      button.setAttribute('aria-expanded', String(open));
+      button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       document.body.style.overflow = open ? 'hidden' : '';
+    };
+
+    button.addEventListener('click', function () {
+      setMenu(button.getAttribute('aria-expanded') !== 'true');
     });
 
-    nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        nav.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
+    drawer.addEventListener('click', function (e) {
+      var target = e.target;
+      if (target instanceof Element && target.closest('a')) setMenu(false);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') {
+        setMenu(false);
+        button.focus();
+      }
     });
   }
 
-  // Header shadow on scroll
-  var header = document.querySelector('.site-header');
+  /* --- Header hairline on scroll --- */
   if (header) {
+    var bar = header;
     var onScroll = function () {
-      header.classList.toggle('is-scrolled', window.scrollY > 12);
+      bar.classList.toggle('is-scrolled', window.scrollY > 8);
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
 
-  // Scroll-reveal sections
-  var reveals = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && reveals.length) {
-    var revealObs = new IntersectionObserver(function (entries, obs) {
-      entries.forEach(function (entry) {
-        // Reveal when it enters view OR when a fast scroll has already carried it past the top
-        if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
-          entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target);
-        }
+  /* --- Active nav link.
+     Picks exactly one section — the last whose top has passed the marker
+     line. The previous IntersectionObserver could light up two links at
+     once whenever both straddled its rootMargin band. --- */
+  var anchors = nav
+    ? /** @type {HTMLAnchorElement[]} */ (
+        Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'))
+      )
+    : [];
+
+  /** @type {{ link: HTMLAnchorElement, section: HTMLElement }[]} */
+  var targets = [];
+  anchors.forEach(function (link) {
+    var href = link.getAttribute('href');
+    var section = href ? document.querySelector(href) : null;
+    if (section instanceof HTMLElement) targets.push({ link: link, section: section });
+  });
+
+  if (targets.length) {
+    var syncActive = function () {
+      var marker = window.scrollY + window.innerHeight * 0.3;
+      /** @type {{ link: HTMLAnchorElement, section: HTMLElement } | null} */
+      var current = null;
+
+      for (var i = 0; i < targets.length; i++) {
+        if (targets[i].section.offsetTop <= marker) current = targets[i];
+      }
+      // once the page bottom is reached the final section always wins
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
+        current = targets[targets.length - 1];
+      }
+
+      for (var j = 0; j < targets.length; j++) {
+        targets[j].link.classList.toggle('is-active', targets[j] === current);
+      }
+    };
+
+    window.addEventListener('scroll', syncActive, { passive: true });
+    window.addEventListener('resize', syncActive, { passive: true });
+    syncActive();
+  }
+  /* --- Copy to clipboard -------------------------------------------------
+     The mailto:/tel: links still work; these are an extra affordance for a
+     recruiter who wants the address in their own compose window. Buttons
+     ship hidden and are revealed only when the API is actually available. */
+  var copyStatus = document.getElementById('copy-status');
+  var copyButtons = Array.prototype.slice.call(document.querySelectorAll('.cc-copy'));
+
+  if (copyButtons.length && navigator.clipboard && window.isSecureContext) {
+    copyButtons.forEach(function (btn) {
+      btn.hidden = false;
+      btn.addEventListener('click', function () {
+        var value = btn.getAttribute('data-copy') || '';
+        navigator.clipboard.writeText(value).then(
+          function () {
+            btn.classList.add('is-copied');
+            btn.textContent = 'Copied';
+            if (copyStatus) copyStatus.textContent = value + ' copied to clipboard';
+            window.setTimeout(function () {
+              btn.classList.remove('is-copied');
+              btn.textContent = 'Copy';
+            }, 1800);
+          },
+          function () {
+            if (copyStatus) copyStatus.textContent = 'Copy failed — select the text instead';
+          },
+        );
       });
-    }, { threshold: 0, rootMargin: '0px 0px -6% 0px' });
-    reveals.forEach(function (el) { revealObs.observe(el); });
-  } else {
-    reveals.forEach(function (el) { el.classList.add('is-visible'); });
+    });
   }
 
-  // Active nav link based on section in view
-  var navLinks = Array.prototype.slice.call(
-    document.querySelectorAll('.nav a[href^="#"]')
-  );
-  var sections = navLinks
-    .map(function (link) { return document.querySelector(link.getAttribute('href')); })
-    .filter(Boolean);
-
-  if ('IntersectionObserver' in window && sections.length) {
-    var setActive = function (id) {
-      navLinks.forEach(function (link) {
-        link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
-      });
+  /* --- Back to top -------------------------------------------------------
+     Appears once the hero is well out of view. The footer link stays as the
+     no-JS path. */
+  var toTop = /** @type {HTMLButtonElement | null} */ (document.querySelector('.to-top'));
+  if (toTop) {
+    var topBtn = toTop;
+    topBtn.hidden = false;
+    var syncToTop = function () {
+      topBtn.classList.toggle('is-shown', window.scrollY > window.innerHeight * 1.2);
     };
-    var navObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) setActive(entry.target.id);
-      });
-    }, { threshold: 0, rootMargin: '-45% 0px -50% 0px' });
-    sections.forEach(function (sec) { navObs.observe(sec); });
+    topBtn.addEventListener('click', function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      var main = document.getElementById('main');
+      if (main) {
+        main.setAttribute('tabindex', '-1');
+        main.focus({ preventScroll: true });
+      }
+    });
+    window.addEventListener('scroll', syncToTop, { passive: true });
+    syncToTop();
   }
 })();

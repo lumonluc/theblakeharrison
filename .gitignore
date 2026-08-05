@@ -8,3 +8,5 @@ Thumbs.db
 
 # Netlify CLI local state
 .netlify/
+node_modules/
+repo-audit.md
