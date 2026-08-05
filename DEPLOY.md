@@ -60,28 +60,26 @@ from any other author is rejected with:
 > Build blocked: This commit is from an unrecognized Git contributor.
 > This plan allows only verified account members to push.
 
-Evidence from this repo's history:
+Evidence from this repo's history: commit `67dc990` was authored from a
+university address and was **blocked**; every commit authored from the
+address currently in `git config user.email` has **built successfully**.
 
-| Commit | Author | Result |
-|---|---|---|
-| `67dc990` | `Harrison, Blake <charr53@okstate.edu>` | **blocked** |
-| `76568ee`, `1d45f88`, `9c67048` | `harriibb <blakeharrison2002@icloud.com>` | built |
-
-**`blakeharrison2002@icloud.com` is the email that works.** It's already set
-locally — verify with:
+The working identity is already configured locally. Check it before
+troubleshooting anything else:
 
 ```bash
-git config user.email   # must print blakeharrison2002@icloud.com
+git config user.email   # must match the verified member on the Netlify account
 ```
 
-This is *not* your Netlify login email and *not* necessarily your GitHub
-account email. It is the **git commit author** email, and that's the only
+This is *not* the Netlify login email and *not* necessarily the GitHub
+account email. It is the **git commit author** email, and that is the only
 thing Netlify checks.
 
-If a build gets blocked, fix the author and re-push:
+If a build is blocked, re-author the commit with the working identity and
+push again:
 
 ```bash
-git commit --amend --author="harriibb <blakeharrison2002@icloud.com>" --no-edit
+git commit --amend --reset-author --no-edit
 git push origin main
 ```
 

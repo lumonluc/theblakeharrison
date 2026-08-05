@@ -10,3 +10,4 @@ Thumbs.db
 .netlify/
 node_modules/
 repo-audit.md
+AUDIT.md
