@@ -42,10 +42,26 @@ async function main() {
 
   const files = (await walk(SRC)).filter((f) => !EXCLUDE.has(relative(SRC, f)));
 
-  const resumeHash = createHash('sha256')
-    .update(await readFile(join(SRC, RESUME)))
-    .digest('hex')
-    .slice(0, 8);
+  /** @param {string} rel @returns {Promise<string>} */
+  const hashOf = async (rel) =>
+    createHash('sha256')
+      .update(await readFile(join(SRC, rel)))
+      .digest('hex')
+      .slice(0, 8);
+
+  const resumeHash = await hashOf(RESUME);
+
+  /**
+   * Content-hash every asset the HTML references. Without this, Netlify's edge
+   * can serve a stale stylesheet against fresh HTML after a deploy — observed
+   * in production, where the CSS was 1.5KB behind the markup for minutes.
+   */
+  const assetHashes = [
+    ['css/styles.css', await hashOf('css/styles.css')],
+    ['js/main.js', await hashOf('js/main.js')],
+    ['portrait.jpg', await hashOf('portrait.jpg')],
+    [RESUME, resumeHash],
+  ];
 
   let copied = 0;
   for (const file of files) {
@@ -54,8 +70,11 @@ async function main() {
     await mkdir(dirname(dest), { recursive: true });
 
     if (rel.endsWith('.html')) {
-      const html = await readFile(file, 'utf8');
-      await writeFile(dest, html.replaceAll(`${RESUME}"`, `${RESUME}?v=${resumeHash}"`));
+      let html = await readFile(file, 'utf8');
+      for (const [asset, hash] of assetHashes) {
+        html = html.replaceAll(`"${asset}"`, `"${asset}?v=${hash}"`);
+      }
+      await writeFile(dest, html);
     } else {
       await cp(file, dest);
     }
