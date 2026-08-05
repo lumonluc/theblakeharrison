@@ -395,6 +395,60 @@ ul {
   }
 }
 
+/* --- Tron sweep ---------------------------------------------------------
+   A band of light travelling diagonally across the grid every ~17s. The
+   band lives inside a layer masked by the grid lines themselves, so only
+   the lines light up — never the empty cells. That layer carries the same
+   drift animation as the base grid so the two stay in register.
+   Both animations are transform-only, so this stays on the compositor. */
+.grid-sweep {
+  position: absolute;
+  inset: -48px;
+  overflow: hidden;
+  mask-image:
+    linear-gradient(to right, #000 2px, transparent 2px),
+    linear-gradient(to bottom, #000 2px, transparent 2px);
+  mask-size: 46px 46px;
+  -webkit-mask-image:
+    linear-gradient(to right, #000 2px, transparent 2px),
+    linear-gradient(to bottom, #000 2px, transparent 2px);
+  -webkit-mask-size: 46px 46px;
+  will-change: transform;
+  animation: grid-drift 26s linear infinite;
+}
+.grid-sweep span {
+  position: absolute;
+  top: -60%;
+  left: 0;
+  width: 34%;
+  height: 220%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(254 92 0 / 55%) 30%,
+    #fe5c00 50%,
+    rgb(254 92 0 / 55%) 70%,
+    transparent
+  );
+  rotate: 14deg;
+  translate: -90% 0;
+  will-change: translate;
+  animation: grid-pulse 17s cubic-bezier(0.4, 0, 0.35, 1) infinite;
+}
+
+/* Travels across, then waits offscreen for the rest of the cycle — the
+   glow reads as occasional rather than constant. */
+@keyframes grid-pulse {
+  0%,
+  14% {
+    translate: -90% 0;
+  }
+  46%,
+  100% {
+    translate: 380% 0;
+  }
+}
+
 /* --- Signal traces ---------------------------------------------------
    Hairline streaks drifting across the hero, picking up the language of
    the pipeline diagrams further down the page. Deliberately restrained:
@@ -1318,7 +1372,8 @@ ul {
     transition-duration: 0.001ms !important;
   }
   /* remove outright rather than leaving them frozen mid-drift */
-  .streak {
+  .streak,
+  .grid-sweep {
     display: none;
   }
   .to-top {
