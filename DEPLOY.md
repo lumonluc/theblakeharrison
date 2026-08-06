@@ -89,6 +89,50 @@ already correct, strip the trailer as the next thing to try.
 
 ---
 
+---
+
+## Gotcha #3: if deploys stop entirely, check the GitHub connection first
+
+On 2026-08-05 five consecutive commits pushed successfully to both repos and
+none of them published. The site sat on an old build for over an hour while
+`git push` reported success every time.
+
+**The cause was Netlify's GitHub account connection, not anything in this
+repository.** Nothing in the code, the commits, or the config was wrong.
+
+Things that were investigated and ruled out — check these *after* the
+connection, not before:
+
+| Suspected | Verdict |
+|---|---|
+| Pushed to the wrong repo | No — both remotes had the commit |
+| Commit author not a verified member | No — same identity had built fine before |
+| Repository private vs public | No — tested both, neither deployed |
+| Stale edge cache | No — the `.netlify.app` subdomain served the same stale build, which rules out CDN caching |
+| `command = "npm run build"` in netlify.toml | No — this was reverted during debugging and later restored; it was never the problem |
+
+**The diagnostic that actually settles it:** open the Deploys tab.
+
+```
+app.netlify.com/projects/theblakeharrison/deploys
+```
+
+If recent commits are **not listed at all**, nothing is triggering — look at
+the GitHub connection and the Netlify GitHub App's repository access. If they
+are listed as **Failed**, the error text names the fix.
+
+Netlify does not post commit statuses to GitHub on this repo, so
+`gh api .../status` returns nothing useful. It is not a signal either way.
+
+A useful outside-in check, since the custom domain caches aggressively:
+
+```bash
+curl -s https://theblakeharrison.netlify.app/ | grep -o 'css/styles\.css[^"]*'
+```
+
+If the `.netlify.app` subdomain and the custom domain agree, you are looking
+at the published build — not a cache artifact.
+
 ## How the build works
 
 `netlify.toml` is the source of truth and **overrides the Netlify UI**. The UI
@@ -113,9 +157,11 @@ edit there is destroyed on the next build. Edit `source/` only.
 
 The build also:
 
-- stamps the resume link with a content hash (`?v=a91b2619`) so a new PDF
-  busts cache with no manual edit — this replaced a hand-typed `?v=` string
-  that had to be changed in 6 places
+- content-hashes every asset the HTML references — CSS, JS, the portrait and
+  the resume all get `?v=<hash>`. Without this, production once served a
+  stylesheet 1.5KB behind the markup: the HTML had updated and the edge still
+  held the old `css/styles.css`, which had no version in its URL and so no way
+  to be invalidated per deploy
 - excludes `Charles_Blake_Harrison_Resume.md` from the published output (it's
   the editable source for the PDF, not for visitors)
 

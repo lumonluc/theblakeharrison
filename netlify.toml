@@ -1,12 +1,7 @@
 [build]
-  # Publish the committed dist/ directly — no build step on Netlify.
-  #
-  # This is the configuration that was working before. Running `npm run build`
-  # here consumes build minutes and adds a failure surface that took the site
-  # offline for five commits; dist/ is committed and generated locally by
-  # `npm run build`, so there is nothing for Netlify to compile.
-  #
-  # IMPORTANT: run `npm run verify` before committing. It lints, typechecks,
-  # and regenerates dist/. Committing source/ without dist/ ships stale files.
   publish = "dist"
-  command = ""
+  command = "npm run build"
+
+[build.environment]
+  # pin the toolchain so a Netlify default bump can't change the output
+  NODE_VERSION = "20"
