@@ -576,6 +576,16 @@ ul {
   margin-bottom: var(--s-5);
 }
 
+/* Short invitation under the hero buttons. Quieter than the lede so it reads
+   as an aside, not a second pitch — the full version lives in the contact
+   section where the email, phone and LinkedIn cards are. */
+.hero-invite {
+  margin: calc(var(--s-3) * -1 + 0.25rem) 0 var(--s-4);
+  font-size: 0.92rem;
+  color: var(--fg-mute);
+  max-width: 46ch;
+}
+
 /* Two named systems, above the fold, before any scrolling. */
 .hero-proof {
   display: grid;
