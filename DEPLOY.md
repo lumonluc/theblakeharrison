@@ -233,9 +233,9 @@ both** — the build does not generate the PDF from the markdown.
 **Open item — the PDF and the site still disagree on one thing.** A recruiter
 reads the site, clicks Download Resume, and sees both.
 
-| | Site says | PDF says |
+| | Site | PDF |
 |---|---|---|
-| GPA | 3.60 | 3.6 — **resolved 2026-08-10** |
+| GPA | matches — **resolved 2026-08-10** | matches |
 | Concentration | **Information Assurance** | still not mentioned |
 
 The site leads with the Information Assurance concentration in the hero, the
@@ -243,7 +243,7 @@ education card, the page title, the meta description and the JSON-LD. The
 resume's Education line does not carry it. Add it and re-export:
 
 > Bachelor of Science in Business Administration, Management Information
-> Systems · Concentration: Information Assurance | GPA: 3.6
+> Systems · Concentration: Information Assurance | GPA: <as on the site>
 
 The PDF is a separate artifact — the build does not generate it from
 `Charles_Blake_Harrison_Resume.md`. Update both.
