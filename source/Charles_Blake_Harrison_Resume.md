@@ -8,7 +8,7 @@ Management Information Systems graduate who builds, deploys, and operates produc
 
 ## Education
 **Oklahoma State University** — Stillwater, OK · August 2026
-Bachelor of Science in Business Administration, Management Information Systems | GPA: 3.78
+Bachelor of Science in Business Administration, Management Information Systems | GPA: 3.60
 **Certifications:** AI Fluency: Framework & Foundations; Claude 101 (Anthropic, 2026)
 
 ---

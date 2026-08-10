@@ -214,6 +214,14 @@ serve `dist/` with anything else, expect to chase ghosts.
 `source/Charles_Blake_Harrison_Resume.pdf` is what visitors download. **Update
 both** — the build does not generate the PDF from the markdown.
 
-**Open item as of 2026-08-05:** the site claims a *concentration in Information
-Assurance* in the hero, the education card, and page metadata. The resume PDF
-does not mention it. A recruiter sees both. Fix the PDF's education line.
+**Open items — the PDF disagrees with the site in two places.** A recruiter
+reads the site, clicks Download Resume, and sees both. Fix the PDF's Education
+line and re-export:
+
+| | Site says | PDF says |
+|---|---|---|
+| GPA | **3.60** | 3.78 |
+| Concentration | **Information Assurance** | not mentioned |
+
+The markdown source (`Charles_Blake_Harrison_Resume.md`) is already corrected
+for GPA; the PDF is a separate artifact and is not generated from it.
