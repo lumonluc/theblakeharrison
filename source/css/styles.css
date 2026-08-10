@@ -580,10 +580,49 @@ ul {
    as an aside, not a second pitch — the full version lives in the contact
    section where the email, phone and LinkedIn cards are. */
 .hero-invite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
   margin: calc(var(--s-3) * -1 + 0.25rem) 0 var(--s-4);
   font-size: 0.92rem;
   color: var(--fg-mute);
-  max-width: 46ch;
+  max-width: 100%;
+}
+.hero-invite span {
+  flex: 0 1 auto;
+  text-wrap: balance;
+}
+
+/* Hairlines flanking the invitation, breathing outward from the text.
+   scaleX + opacity only, so it stays on the compositor like the rest of
+   the hero motion. */
+.hero-invite::before,
+.hero-invite::after {
+  content: '';
+  flex: 0 0 auto;
+  width: clamp(18px, 4vw, 56px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-ink), transparent);
+  animation: invite-line 3.6s ease-in-out infinite;
+}
+.hero-invite::before {
+  transform-origin: right center;
+}
+.hero-invite::after {
+  transform-origin: left center;
+}
+
+@keyframes invite-line {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scaleX(0.55);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
 }
 
 /* Two named systems, above the fold, before any scrolling. */
@@ -1356,6 +1395,10 @@ ul {
   }
   .hero-actions .btn {
     flex: 1 1 100%;
+  }
+  .hero-invite::before,
+  .hero-invite::after {
+    display: none;
   }
   .hero-proof {
     grid-template-columns: minmax(0, 1fr);
