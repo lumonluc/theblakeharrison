@@ -133,6 +133,22 @@ curl -s https://theblakeharrison.netlify.app/ | grep -o 'css/styles\.css[^"]*'
 If the `.netlify.app` subdomain and the custom domain agree, you are looking
 at the published build — not a cache artifact.
 
+**Always normalise whitespace before grepping the HTML for a phrase.**
+Prettier wraps long lines, so a sentence can straddle a newline and a plain
+`grep` will miss text that is present and live. This produced a false
+"deploy is stuck" diagnosis once already:
+
+```bash
+# wrong — fails whenever the phrase wraps
+curl -s https://theblakeharrison.com/ | grep -c "always up for a conversation"
+
+# right
+curl -s https://theblakeharrison.com/ | tr '\n' ' ' | tr -s ' ' | grep -c "always up for a conversation"
+```
+
+Short single-word markers (`grid-sweep`, `3.60`) are safe; whole sentences
+are not.
+
 ## How the build works
 
 `netlify.toml` is the source of truth and **overrides the Netlify UI**. The UI
