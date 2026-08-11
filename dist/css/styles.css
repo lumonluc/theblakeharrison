@@ -347,9 +347,11 @@ ul {
   color: #fff;
   border-color: var(--blue);
 }
+/* Blue at rest, brand orange on hover — the two hero buttons trade colours,
+   since Contact runs orange to blue. */
 .btn-ghost:hover {
-  background: #1442b0;
-  border-color: #1442b0;
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
 }
 
