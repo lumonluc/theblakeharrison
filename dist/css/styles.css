@@ -154,8 +154,7 @@ ul {
   outline-offset: 3px;
   border-radius: 2px;
 }
-.contact-section :focus-visible,
-.site-header :focus-visible {
+.contact-section :focus-visible {
   outline-color: var(--accent);
 }
 
@@ -183,19 +182,19 @@ ul {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: color-mix(in srgb, var(--stone) 92%, transparent);
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
   backdrop-filter: saturate(140%) blur(10px);
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid var(--line-strong);
   transition:
     background-color 0.25s,
     border-color 0.2s,
     box-shadow 0.2s;
 }
 .site-header.is-scrolled {
-  background: color-mix(in srgb, var(--stone) 76%, transparent);
+  background: color-mix(in srgb, var(--paper) 97%, transparent);
   backdrop-filter: saturate(160%) blur(16px);
-  border-bottom-color: rgba(255, 255, 255, 0.14);
-  box-shadow: 0 2px 18px rgba(16, 17, 20, 0.14);
+  border-bottom-color: var(--line-strong);
+  box-shadow: 0 2px 18px rgba(16, 17, 20, 0.08);
 }
 .header-inner {
   display: flex;
@@ -210,13 +209,13 @@ ul {
   align-items: center;
   gap: 0.6rem;
   min-height: 44px;
-  color: #fff;
+  color: var(--fg);
   text-decoration: none;
   font-family: var(--font-display);
   font-size: var(--t-1);
 }
 .logo:hover {
-  color: #fff;
+  color: var(--fg);
 }
 .logo-text {
   white-space: nowrap;
@@ -249,7 +248,7 @@ ul {
   min-height: 44px;
   padding-inline: 0.85rem;
   border-radius: 100px;
-  color: var(--on-stone);
+  color: var(--fg-soft);
   text-decoration: none;
   font-size: 0.9375rem;
   font-weight: 500;
@@ -377,8 +376,8 @@ ul {
 }
 
 .nav a.btn-resume {
-  background: #fff;
-  color: var(--ink);
+  background: var(--ink);
+  color: #fff;
   padding: 0.5rem 1.05rem;
   min-height: 44px;
 }
