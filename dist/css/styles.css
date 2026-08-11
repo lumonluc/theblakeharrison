@@ -42,7 +42,7 @@
   --line-ink: #2b2e35;
   /* deep stone — the nav bar */
   --stone: #3f3b38;
-  --on-stone: #d6d3cf;
+  --on-stone: #f2f0ee;
 
   /* Accent, split by role.
      --accent      fills and borders, and text on the ink band (6.11:1)
@@ -183,16 +183,19 @@ ul {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: color-mix(in srgb, var(--stone) 94%, transparent);
+  background: color-mix(in srgb, var(--stone) 92%, transparent);
   backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid transparent;
   transition:
+    background-color 0.25s,
     border-color 0.2s,
     box-shadow 0.2s;
 }
 .site-header.is-scrolled {
-  border-bottom-color: rgba(0, 0, 0, 0.35);
-  box-shadow: 0 2px 18px rgba(16, 17, 20, 0.22);
+  background: color-mix(in srgb, var(--stone) 76%, transparent);
+  backdrop-filter: saturate(160%) blur(16px);
+  border-bottom-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 2px 18px rgba(16, 17, 20, 0.14);
 }
 .header-inner {
   display: flex;
