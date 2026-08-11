@@ -49,6 +49,10 @@
                    5.29 on paper, 4.71 on grey. */
   --accent: #fe5c00;
   --accent-ink: #b84000;
+  /* hover-only accent — 6.18:1 with white, and 6.18:1 as text on paper */
+  --blue: #1a56db;
+  /* decorative only — signal traces drifting across the hero */
+  --streak: #8fb6f5;
   --accent-wash: #fff2ea;
 
   --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
@@ -313,8 +317,22 @@ ul {
   font-weight: 700;
 }
 .btn-primary:hover {
-  background: #ff7324;
-  color: var(--ink);
+  background: var(--blue);
+  color: #fff;
+}
+
+/* Space is reserved at all times so revealing the icon cannot shift the
+   button's contents. */
+.btn-icon {
+  flex: 0 0 auto;
+  width: 1.05em;
+  height: 1.05em;
+  opacity: 0;
+  transition: opacity 0.18s;
+}
+.btn:hover .btn-icon,
+.btn:focus-visible .btn-icon {
+  opacity: 1;
 }
 
 .btn-ghost {
@@ -323,8 +341,8 @@ ul {
   border-color: var(--line-strong);
 }
 .btn-ghost:hover {
-  border-color: var(--fg);
-  color: var(--fg);
+  border-color: var(--blue);
+  color: var(--blue);
 }
 
 .nav a.btn-resume {
@@ -460,7 +478,7 @@ ul {
   left: 0;
   height: 1px;
   width: clamp(140px, 26%, 340px);
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  background: linear-gradient(90deg, transparent, var(--streak), transparent);
   opacity: 0;
   will-change: transform;
   animation: streak-drift 14s cubic-bezier(0.45, 0, 0.55, 1) infinite;
@@ -493,6 +511,23 @@ ul {
   top: 88%;
   animation-duration: 21s;
   animation-delay: -14s;
+}
+.streak-6 {
+  top: 9%;
+  width: clamp(80px, 14%, 180px);
+  animation-duration: 16s;
+  animation-delay: -8s;
+}
+.streak-7 {
+  top: 45%;
+  animation-duration: 23s;
+  animation-delay: -18s;
+}
+.streak-8 {
+  top: 64%;
+  width: clamp(60px, 10%, 130px);
+  animation-duration: 18s;
+  animation-delay: -5s;
 }
 
 @keyframes streak-drift {
@@ -586,7 +621,7 @@ ul {
   gap: 0.8rem;
   margin: calc(var(--s-3) * -1 + 0.25rem) 0 var(--s-4);
   font-size: 0.92rem;
-  color: var(--fg-mute);
+  color: var(--fg);
   max-width: 100%;
 }
 .hero-invite span {
@@ -601,9 +636,11 @@ ul {
 .hero-invite::after {
   content: '';
   flex: 0 0 auto;
-  width: clamp(18px, 4vw, 56px);
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent-ink), transparent);
+  width: clamp(24px, 5vw, 60px);
+  height: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='8' viewBox='0 0 20 8'%3E%3Cpath d='M0 4 Q 5 1, 10 4 T 20 4' fill='none' stroke='%23b84000' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 20px 8px;
   animation: invite-line 3.6s ease-in-out infinite;
 }
 .hero-invite::before {
@@ -705,6 +742,15 @@ ul {
   box-shadow:
     0 0 0 8px rgba(254, 92, 0, 0.09),
     0 14px 34px rgba(254, 92, 0, 0.16);
+  transition:
+    transform 0.38s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.38s ease;
+}
+.hero-portrait:hover {
+  transform: scale(1.07);
+  box-shadow:
+    0 0 0 14px rgba(254, 92, 0, 0.12),
+    0 22px 50px rgba(254, 92, 0, 0.26);
 }
 
 /* =====================================================================
