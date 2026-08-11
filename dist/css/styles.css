@@ -40,6 +40,9 @@
   --line: #e3e1dc;
   --line-strong: #d2cfc8;
   --line-ink: #2b2e35;
+  /* deep stone — the nav bar */
+  --stone: #3f3b38;
+  --on-stone: #d6d3cf;
 
   /* Accent, split by role.
      --accent      fills and borders, and text on the ink band (6.11:1)
@@ -151,7 +154,8 @@ ul {
   outline-offset: 3px;
   border-radius: 2px;
 }
-.contact-section :focus-visible {
+.contact-section :focus-visible,
+.site-header :focus-visible {
   outline-color: var(--accent);
 }
 
@@ -179,16 +183,16 @@ ul {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: color-mix(in srgb, var(--paper) 88%, transparent);
-  backdrop-filter: saturate(150%) blur(10px);
+  background: color-mix(in srgb, var(--stone) 94%, transparent);
+  backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid transparent;
   transition:
     border-color 0.2s,
     box-shadow 0.2s;
 }
 .site-header.is-scrolled {
-  border-bottom-color: var(--line);
-  box-shadow: 0 1px 12px rgba(16, 17, 20, 0.05);
+  border-bottom-color: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 2px 18px rgba(16, 17, 20, 0.22);
 }
 .header-inner {
   display: flex;
@@ -203,13 +207,13 @@ ul {
   align-items: center;
   gap: 0.6rem;
   min-height: 44px;
-  color: var(--fg);
+  color: #fff;
   text-decoration: none;
   font-family: var(--font-display);
   font-size: var(--t-1);
 }
 .logo:hover {
-  color: var(--fg);
+  color: #fff;
 }
 .logo-text {
   white-space: nowrap;
@@ -220,8 +224,8 @@ ul {
   width: 32px;
   height: 32px;
   border-radius: 7px;
-  background: var(--ink);
-  color: #fff;
+  background: var(--accent);
+  color: var(--ink);
   font-family: var(--font-sans);
   font-size: 0.66rem;
   font-weight: 700;
@@ -240,31 +244,45 @@ ul {
   justify-content: center;
   min-width: 44px;
   min-height: 44px;
-  padding-inline: 0.5rem;
-  color: var(--fg-soft);
+  padding-inline: 0.85rem;
+  border-radius: 100px;
+  color: var(--on-stone);
   text-decoration: none;
   font-size: 0.9375rem;
   font-weight: 500;
+  transition:
+    background-color 0.18s,
+    color 0.18s;
 }
-.nav a:not(.btn)::after {
-  content: '';
-  position: absolute;
-  left: 0.5rem;
-  bottom: 0.55rem;
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  transition: width 0.2s ease;
+/* Each nav item gets its own bubble on hover. Every fill below clears AA
+   with the white label it carries. */
+.nav a:not(.btn):hover,
+.nav a:not(.btn):focus-visible {
+  color: #fff;
 }
-.nav a:not(.btn):hover {
-  color: var(--fg);
+.nav a[href='#work']:hover,
+.nav a[href='#work']:focus-visible {
+  background: #c44300;
 }
-.nav a:not(.btn):hover::after,
-.nav a.is-active::after {
-  width: calc(100% - 1rem);
+.nav a[href='#experience']:hover,
+.nav a[href='#experience']:focus-visible {
+  background: #1a56db;
+}
+.nav a[href='#skills']:hover,
+.nav a[href='#skills']:focus-visible {
+  background: #0f766e;
+}
+.nav a[href='#education']:hover,
+.nav a[href='#education']:focus-visible {
+  background: #6d28d9;
+}
+.nav a[href='#contact']:hover,
+.nav a[href='#contact']:focus-visible {
+  background: #15803d;
 }
 .nav a.is-active {
-  color: var(--fg);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .nav-toggle {
@@ -283,7 +301,7 @@ ul {
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--fg);
+  background: var(--on-stone);
   transition:
     transform 0.2s,
     opacity 0.2s;
@@ -356,14 +374,14 @@ ul {
 }
 
 .nav a.btn-resume {
-  background: var(--ink);
-  color: #fff;
+  background: #fff;
+  color: var(--ink);
   padding: 0.5rem 1.05rem;
   min-height: 44px;
 }
 .nav a.btn-resume:hover {
   background: var(--accent);
-  color: #fff;
+  color: var(--ink);
 }
 .nav a.btn-resume::after {
   display: none;
