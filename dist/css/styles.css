@@ -593,7 +593,6 @@ ul {
   color: var(--fg);
   max-width: 17ch;
   margin-bottom: var(--s-3);
-  text-wrap: balance;
 }
 .hero-lede {
   font-size: clamp(1.02rem, 1.35vw, 1.13rem);
