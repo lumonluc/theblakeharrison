@@ -182,18 +182,16 @@ ul {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: color-mix(in srgb, var(--paper) 92%, transparent);
-  backdrop-filter: saturate(140%) blur(10px);
-  border-bottom: 1px solid var(--line-strong);
+  background: var(--paper);
+  border-bottom: 1px solid var(--accent);
   transition:
     background-color 0.25s,
     border-color 0.2s,
     box-shadow 0.2s;
 }
 .site-header.is-scrolled {
-  background: color-mix(in srgb, var(--paper) 97%, transparent);
-  backdrop-filter: saturate(160%) blur(16px);
-  border-bottom-color: var(--line-strong);
+  background: var(--paper);
+  border-bottom-color: var(--accent);
   box-shadow: 0 2px 18px rgba(16, 17, 20, 0.08);
 }
 .header-inner {
@@ -375,15 +373,17 @@ ul {
   color: #fff;
 }
 
+/* Matches the hero's "Download resume" button — same blue at rest,
+   orange on hover. */
 .nav a.btn-resume {
-  background: var(--ink);
+  background: var(--blue);
   color: #fff;
   padding: 0.5rem 1.05rem;
   min-height: 44px;
 }
 .nav a.btn-resume:hover {
   background: var(--accent);
-  color: var(--ink);
+  color: #fff;
 }
 .nav a.btn-resume::after {
   display: none;
