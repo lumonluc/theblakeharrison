@@ -308,15 +308,15 @@ ul {
     color 0.18s,
     border-color 0.18s;
 }
-/* White text forces a darker orange: #fff on #fe5c00 is only 3.11:1. #c44300
-   is the lightest shade that clears AA at 5.06:1. The vivid --accent stays
-   in use for fills, borders and dots elsewhere.
+/* Brand orange, matching the portrait ring, the pulse dot and the card
+   borders. Note: #fff on #fe5c00 is 3.11:1 and does not meet WCAG AA for
+   normal text — this is a deliberate design choice, taken knowingly.
    position: relative so the phone icon can sit outside the flow — otherwise
    its reserved width pushes the label off-centre. */
 .btn-primary {
   position: relative;
   min-width: 165px;
-  background: #c44300;
+  background: var(--accent);
   color: #fff;
   font-weight: 700;
 }
